@@ -40,24 +40,21 @@ public class MainActivity extends AppCompatActivity implements FinanceServiceCal
         btnGo = (Button) findViewById(R.id.btnGo);
 
         btnGo.setOnClickListener(this);
-
-
-
     }
 
     @Override
     public void onClick(View v) {
 
         String strSymbol = etSymbol.getText().toString();
-
+        etSymbol.setText("");
         service = new YahooFinanceService(this, getApplicationContext());
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
         dialog.show();
 
         service.refreshQuote(strSymbol);
-
     }
+
     @Override
     public void serviceSuccess(Quote quote) {
         dialog.hide();

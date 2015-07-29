@@ -19,7 +19,6 @@ public class YahooFinanceService {
     private Context context;
     private Exception error;
 
-    private final String CACHED_WEATHER_FILE = "finance.data";
     public YahooFinanceService(FinanceServiceCallback callback, Context context) {
         this.callback = callback;
         this.context = context;
@@ -106,11 +105,10 @@ public class YahooFinanceService {
         }.execute(symbol);
     }
 
-
-
     private Quote loadCache(String location) {
+        String CACHED_FINANCE_FILE = "finance.data";
         try {
-            FileInputStream inputStream = context.openFileInput(CACHED_WEATHER_FILE);
+            FileInputStream inputStream = context.openFileInput(CACHED_FINANCE_FILE);
 
             StringBuilder cache = new StringBuilder();
             int content;
@@ -125,14 +123,12 @@ public class YahooFinanceService {
             Quote quote = new Quote();
             quote.populate(jsonCache);
 
-            //long now = (new Date()).getTime();
-
             if (quote.getSymbol().equalsIgnoreCase(location)) {
                 return quote;
             }
 
         } catch (Exception e) {
-            context.deleteFile(CACHED_WEATHER_FILE);
+            context.deleteFile(CACHED_FINANCE_FILE);
         }
 
         return null;
