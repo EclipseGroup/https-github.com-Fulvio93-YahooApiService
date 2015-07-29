@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="strSymbol">Large Text</string>
+    <string name="strName">New Text</string>
+    <string name="strDaysLow">Medium Text</string>
+    <string name="strDaysHigh">Medium Text</string>
+    <string name="strLastTrade">Large Text</string>
+    <string name="strInsertSymbol">Insert Symbol</string>
+    <string name="strGo">Go</string>
+</resources>
